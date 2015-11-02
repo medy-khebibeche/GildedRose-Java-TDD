@@ -32,4 +32,28 @@ public class GildedRoseTest
 		GildedRose.updateItem(testItem);
 		assertEquals(testItem.getQuality(),0);
 	}
+	
+	@Test
+	public void qualityIncreaseWhenItemIsAgedBrie()
+	{
+		Item testItem = new Item("Aged Brie",2,0);
+		GildedRose.updateItem(testItem);
+		assertEquals(testItem.getQuality(), 1);
+		assertEquals(testItem.getSellIn(), 1);
+	}
+	
+	@Test
+	public void qualityIsNeverMoreThanFiftyTest()
+	{
+		Item testItem = new Item("Aged Brie",2,50);
+		GildedRose.updateItem(testItem);
+		assertEquals(testItem.getQuality(), 50);
+	}
+	
+	@Test
+	public void sulfurasIsUnchangedtest()
+	{
+		
+	}
+	
 }
