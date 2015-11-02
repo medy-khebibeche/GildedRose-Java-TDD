@@ -14,5 +14,22 @@ public class GildedRoseTest
 		assertEquals(testItem.getSellIn(),9);
 		assertEquals(testItem.getQuality(),19);
 	}
+	
+	@Test
+	public void ifSellInisLowerThanZeroSellInDecreaseOfOneAndQualityDecreaseOfTwoTest()
+	{
+		Item testItem = new Item("testItem",-1,20);
+		GildedRose.updateItem(testItem);
+		assertEquals(testItem.getSellIn(),-2);
+		assertEquals(testItem.getQuality(),18);
+	}
 
+	
+	@Test
+	public void qualityIsAlwaysPositiveTest() throws NegativeQualityException
+	{
+		Item testItem = new Item("testItem",20,0);
+		GildedRose.updateItem(testItem);
+		assertEquals(testItem.getQuality(),0);
+	}
 }
