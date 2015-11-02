@@ -17,7 +17,7 @@ public class GildedRose
 	 * items.add(new Item("Conjured Mana Cake", 3, 6));
 	 */
 
-	public static void updateItems(List<Item> items)
+	public static void updateItems(List<Item> items) 
 	{
 		for (int indexInItemList = 0; indexInItemList < items.size(); indexInItemList++)
 			updateItem(items.get(indexInItemList));
@@ -25,6 +25,21 @@ public class GildedRose
 
 	public static void updateItem(Item item)
 	{	
+		decreaseQuality(item);
+		if(item.getSellIn()<0)
+			decreaseQuality(item);
+		if(item.getQuality() <= 0)
+			item.setQuality(0);
+		decreaseSellIn(item);
+
+	}
+
+	private static void decreaseSellIn(Item item) {
+		item.setSellIn(item.getSellIn()-1);
+	}
+
+	private static void decreaseQuality(Item item) {
+		item.setQuality(item.getQuality()-1);
 	}
 
 }
