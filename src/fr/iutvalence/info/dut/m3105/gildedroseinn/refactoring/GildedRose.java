@@ -25,21 +25,25 @@ public class GildedRose
 
 	public static void updateItem(Item item)
 	{	
-		if(item.getName() == "Aged Brie")
+		switch(item.getName())
 		{
+		case "Aged Brie":
 			decreaseSellIn(item);
 			if(item.getQuality()==50)
 				item.setQuality(50);
 			else
 				increaseQuality(item);
-		} else
-		{
+			break;
+		case "Sulfuras":
+			break;
+		default:
 			decreaseQuality(item);
 			if(item.getSellIn()<0)
 				decreaseQuality(item);
 			if(item.getQuality() <= 0)
 				setQualityToZero(item);
 			decreaseSellIn(item);
+			break;
 		}
 	}
 

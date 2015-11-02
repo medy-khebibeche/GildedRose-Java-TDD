@@ -53,7 +53,10 @@ public class GildedRoseTest
 	@Test
 	public void sulfurasIsUnchangedtest()
 	{
-		
+		Item testItem = new Item("Sulfuras",2,50);
+		GildedRose.updateItem(testItem);
+		assertEquals(testItem.getQuality(), 50);
+		assertEquals(testItem.getSellIn(), 2);
 	}
 	
 }
