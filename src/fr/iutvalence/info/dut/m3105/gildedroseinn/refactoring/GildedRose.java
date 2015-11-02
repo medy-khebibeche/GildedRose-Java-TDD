@@ -27,23 +27,23 @@ public class GildedRose
 	{	
 		switch(item.getName())
 		{
-		case "Aged Brie":
-			decreaseSellIn(item);
-			if(item.getQuality()==50)
-				item.setQuality(50);
-			else
-				increaseQuality(item);
-			break;
-		case "Sulfuras":
-			break;
-		default:
-			decreaseQuality(item);
-			if(item.getSellIn()<0)
+			case "Aged Brie":
+				decreaseSellIn(item);
+				if(item.getQuality()==50)
+					item.setQuality(50);
+				else
+					increaseQuality(item);
+				break;
+			case "Sulfuras":
+				break;
+			default:
 				decreaseQuality(item);
-			if(item.getQuality() <= 0)
-				setQualityToZero(item);
-			decreaseSellIn(item);
-			break;
+				if(item.getSellIn()<0)
+					decreaseQuality(item);
+				if(item.getQuality() <= 0)
+					setQualityToZero(item);
+				decreaseSellIn(item);
+				break;
 		}
 	}
 
