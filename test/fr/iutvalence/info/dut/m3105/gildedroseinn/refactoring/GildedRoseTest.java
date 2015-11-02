@@ -26,7 +26,7 @@ public class GildedRoseTest
 
 	
 	@Test
-	public void qualityIsAlwaysPositiveTest() throws NegativeQualityException
+	public void qualityIsAlwaysPositiveTest()
 	{
 		Item testItem = new Item("testItem",20,0);
 		GildedRose.updateItem(testItem);
